@@ -26,5 +26,12 @@ function stopChangingBackgroundColor() {
   refs.btnStop.disabled = true;
 }
 
-refs.btnStart.addEventListener('click', startChangingBackgroundColor);
-refs.btnStop.addEventListener('click', stopChangingBackgroundColor);
+refs.btnStart.addEventListener('click', () => {
+  startChangingBackgroundColor();
+  refs.btnStop.disabled = false;
+});
+
+refs.btnStop.addEventListener('click', () => {
+  stopChangingBackgroundColor();
+  refs.btnStart.disabled = false;
+});
