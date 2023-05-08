@@ -42,12 +42,9 @@ function onStartButton() {
 function updateTimer() {
   const now = new Date().getTime();
   const distance = countdownDate - now;
-  if (distance < 0) {
+  if (distance <= 0) {
     clearInterval(intervalId);
-    refs.daysValue.textContent = '00';
-    refs.hoursValue.textContent = '00';
-    refs.minutesValue.textContent = '00';
-    refs.secondsValue.textContent = '00';
+    intervalId = null;
     Notiflix.Notify.success('Countdown finished!');
   } else {
     const { days, hours, minutes, seconds } = convertMs(distance);
